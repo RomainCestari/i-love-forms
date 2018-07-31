@@ -1,24 +1,11 @@
-# README
+# i-love-forms
+Projet réalisé par l'équipe THP de Marseille : Ahmed Bouzid, Thomas Iatrou, Romain Cestari
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Réalisation d'une app et mise en ligne sur Heroku.
 
-Things you may want to cover:
+Cette app permet de rensigner son nom, son email et sa biographie.
+Trois formulaires ont été créés : HTML, Form_tag, Form_for
 
-* Ruby version
+NB : pensez à décocher les commentaires pour tester les trois types de formulaires. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Lien Heroku de l'application : https://superapp-mardi.herokuapp.com
