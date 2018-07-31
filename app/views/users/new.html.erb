@@ -1,0 +1,105 @@
+<h1 class="text-secondary" style="text-align:center;margin-top:40px;">Inscription</h1>
+
+<!-------------------------------------------
+ FORMULAIRE HTML
+----------------------------------------- -->
+
+<% if false %>
+<div class="container">
+  <form action="/users" method="POST">     #method "post" afin de récuperer les informations
+
+ 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    #bloc qui permet de renseigner son nom avec le CSS
+
+    <div class="form-group" style="width:500px;margin:0 auto;margin-top:30px">
+	    <label for="title">Votre nom</label>
+	    <input class="form-control" type="text" name="user[username]" placeholder="ex: Thomas">
+    </div> <br><br>
+
+     #bloc qui permet de renseigner son email avec le CSS
+
+    <div class="form-group" style="width:500px;margin:0 auto;">
+		<label for="title">Votre email</label>
+	    <input class="form-control"  type="text" name="user[email]" placeholder="ex: Thomas@hotmail.com">
+    </div> <br><br>
+
+    #bloc qui permet de renseigner sa biographie avec le CSS
+
+    <div class="form-group" style="width:500px;margin:0 auto;">   #CSS
+	    <label for="title">Votre bio</label>
+	    <textarea  class="form-control"  type=“text” name="user[bio]" placeholder="ex: j'aime le pastis"></textarea>
+    </div> <br>
+    #bouton pour valider les informations que l'utilisateur a renseigné
+    <button class="form-control" style="width:500px;margin:0 auto;margin-top:30px;background-color:#4571ff; color:white" type="submit" value="Inscription"> Valider </button>
+
+</form>
+</div>
+<% end %>
+
+<!-----------------------------------------
+ FORMULAIRE FORM_TAG
+------------------------------------------- -->
+
+<!-- Enlever le "require(:user) dans le users#user_params" -->
+
+<% if false %>
+<div class="container">
+	<%= form_tag('/users') do %>
+
+	  <div class="form-group" style="width:500px;margin:0 auto;margin-top:50px"> #CSS
+	  	<%= label_tag :username, 'Votre nom' %>
+		<input class="form-control"<%= text_field_tag :username, nil, placeholder:'ex: Thomas'%>
+	  </div>
+	  <br/><br/>
+
+	  <div class="form-group" style="width:500px;margin:0 auto;">  #CSS
+		<%= label_tag :email, 'Votre email' %>
+		<input class="form-control" <%= text_field_tag :email, nil, placeholder:'ex: Thomas@hotmail.com' %>
+	  </div>
+	  <br/><br/>
+
+	  <div class="form-group" style="width:500px;margin:0 auto;">  #CSS
+		<%= label_tag :bio, 'Votre bio' %>
+		<input class="form-control" <%= text_area_tag :bio, nil, placeholder:'ex: Je suis Français ...' %>
+	  </div>
+	  	<br/><br/>
+
+	  <button class="form-control" style="width:500px;margin:0 auto;margin-top:30px;background-color:#4571ff; color:white"<%= submit_tag "Load" %>> Valider </button>
+
+	<% end %>
+</div>
+<% end %>
+
+
+<!-----------------------------------------
+ FORMULAIRE FORM_FOR
+----------------------------------------- -->
+
+<!-- Ajouter le "require(:user) dans le users#user_params" -->
+
+<% if true %>
+	<%= form_for @user do |f| %>
+
+		<div class="form-group" style="width:500px;margin:0 auto;margin-top:50px">  #CSS
+			<%= f.label :username, 'Votre nom'%><br />
+			<input class="form-control"<%= f.text_field :username, placeholder: 'ex: Romain'%>
+		</div>
+		<br/><br/>
+
+		<div class="form-group" style="width:500px;margin:0 auto;">  #CSS
+			<%= f.label :email, 'Votre email' %><br />
+	 		<input class="form-control"<%= f.text_field :email, placeholder: 'ex: Romain@hotmail.com' %>
+	 	</div>
+	 	<br/><br/>
+
+	    <div class="form-group" style="width:500px;margin:0 auto;">  #CSS
+		    <%= f.label :bio, 'Votre biographie'%><br />
+		   	<input class="form-control"<%= f.text_area :bio ,placeholder: 'ex: Je suis un Français...' %>
+	   	</div>
+	   	<br/><br/>
+      #bouton pour valider les informations que l'utilisateur a renseigné
+		<button class="form-control" style="width:500px;margin:0 auto;margin-top:30px;background-color:#4571ff; color:white"<%= f.submit %>> Valider </button>
+
+	<% end %>
+<% end %>
